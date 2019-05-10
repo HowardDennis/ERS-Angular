@@ -20,6 +20,7 @@ export class LoginService {
     this.httpClient.post('http://localhost:8080/ChatApp/login', payload, {
         observe: 'response'
       }).subscribe(response => {
+        sessionStorage.setItem('user', response.body.toString());
         this.loginStatusSubject.next(200);
       }, err => {
         this.loginStatusSubject.next(err.status);

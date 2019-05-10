@@ -1,3 +1,18 @@
-<p>
-  chat works!
-</p>
+<table>
+  <tr>
+    <th>Reimbursement Amount</th>
+    <th>Type</th>
+    <th>Reimbursement Description</th>
+    <th>Time Submitted</th>
+    <th>Status</th>
+    <th>Financier</th>
+  </tr>
+  <tr *ngFor = "let reimb of hope.reimbursements">
+    <td>{{reimb.reimb_amount}}</td>
+    <td>{{reimb.reimb_type}}</td>
+    <td>{{reimb.reimb_description}}</td>
+    <td>{{reimb.reimb_description}}</td>
+    <td>{{reimb.reimb_status}}</td>
+    <td>{{reimb.reimb_resolver}}</td>
+  </tr>
+</table>
