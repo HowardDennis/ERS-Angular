@@ -17,7 +17,7 @@ export class LoginService {
       password: password
     };
 
-    this.httpClient.post('http://localhost:8080/ChatApp/login', payload, {
+    this.httpClient.post('http://localhost:8080/ERS_App/login', payload, {
         observe: 'response'
       }).subscribe(response => {
         sessionStorage.setItem('user', response.body.toString());

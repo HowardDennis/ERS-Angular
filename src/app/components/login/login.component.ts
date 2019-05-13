@@ -18,15 +18,19 @@ export class LoginComponent implements OnInit, OnDestroy {
   constructor(private loginService: LoginService, private router: Router) { }
 
   ngOnInit() {
-    this.loginResponse = this.loginService.$loginStatus.subscribe(status => {
-      // do something with the status here
-      if (status === 200) {
-        this.router.navigateByUrl('chat');
-      } else {
-        // set status to lastStatus to display appropriate error message
-        this.lastStatus = status;
-      }
-    });
+    if (sessionStorage.getItem('user') !== null) {
+      this.router.navigateByUrl('ers');
+    } else {
+      this.loginResponse = this.loginService.$loginStatus.subscribe(status => {
+        // do something with the status here
+        if (status === 200) {
+          this.router.navigateByUrl('ers');
+        } else {
+          // set status to lastStatus to display appropriate error message
+          this.lastStatus = status;
+        }
+      });
+    }
   }
 
   ngOnDestroy() {
